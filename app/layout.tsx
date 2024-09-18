@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import { ReactNode } from "react";
-import clsx from "clsx";
 import { Metadata, Viewport } from "next";
 import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google";
 
@@ -41,13 +40,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       lang="en"
       className={`${fontSans.variable} ${fontMono.variable} font-sans`}
     >
-      <head />
-      <body className={clsx("min-h-screen bg-background antialiased")}>
+      <body>
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <main className="relative flex flex-col h-screen w-screen">
-            <NavBar />
-            {children}
-          </main>
+          <NavBar />
+          <main>{children}</main>
         </Providers>
       </body>
     </html>
